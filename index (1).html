@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Más de 500 grooves y 240 fills de batería para practicar, con partituras en PDF."><title>Biblioteca de Grooves para Bateristas</title>
+<style>
+:root{--bg:#f6f4ef;--fg:#1c1b19;--mut:#76716a;--card:#fff;--bd:#e2ddd3;--ac:#d9480f;--cell:#ebe7de;--k:#d9480f;--s:#1c7ed6;--h:#2f9e44;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15140f;--fg:#f1eee6;--mut:#a09a8e;--card:#201f19;--bd:#34322a;--ac:#ff7a3d;--cell:#2e2c25;--k:#ff7a3d;--s:#4dabf7;--h:#51cf66;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15140f;--fg:#f1eee6;--mut:#a09a8e;--card:#201f19;--bd:#34322a;--ac:#ff7a3d;--cell:#2e2c25;--k:#ff7a3d;--s:#4dabf7;--h:#51cf66;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:10}
+header{padding:20px 16px 8px;max-width:1000px;margin:auto}
+h1{margin:0;font-size:24px;letter-spacing:-.5px}
+header p{margin:4px 0 0;color:var(--mut)}
+#pl{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--bd);padding:12px 16px}
+.in{max-width:1000px;margin:auto}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+#nm{font-weight:700;flex:1;min-width:140px}
+button,select{font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:7px 12px;cursor:pointer}
+#pp{background:var(--ac);color:#fff;border:0;font-weight:700;min-width:96px}
+.bp{display:flex;align-items:center;gap:6px}
+input[type=range]{accent-color:var(--ac);width:130px}
+#bv{min-width:34px;text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.big{display:grid;gap:4px;align-items:center}
+.big span{font-size:12px;color:var(--mut);padding-right:8px}
+.big button{padding:0;aspect-ratio:1;max-height:34px;width:100%;background:var(--cell);border:0;border-radius:5px}
+.big button.b,.g i.b{margin-left:3px}
+.on.h{background:var(--h)!important}.on.s{background:var(--s)!important}.on.k{background:var(--k)!important}
+.gh{opacity:.45}.op{background:transparent!important;box-shadow:inset 0 0 0 3px var(--h)}
+.cur{outline:2px solid var(--fg);outline-offset:1px}
+.hint{font-size:12px;color:var(--mut);margin-top:6px}
+.flt{display:flex;gap:10px;flex-wrap:wrap;align-items:center;max-width:1000px;margin:12px auto 0;padding:0 16px}
+.flt label{display:flex;gap:6px;align-items:center;color:var(--mut)}
+#ct{margin-left:auto;color:var(--mut)}
+#ls{max-width:1000px;margin:12px auto;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.cd{text-align:left;padding:10px;display:block;width:100%}
+.cd.sel{border-color:var(--ac);box-shadow:0 0 0 2px var(--ac)}
+.cd b{display:block}
+.cd small{color:var(--mut)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.star{font-size:16px;cursor:pointer;color:var(--mut)}.star.f{color:#f59f00}
+.g{display:grid;gap:2px}
+.g i{display:block;aspect-ratio:1;border-radius:2px;background:var(--cell)}
+#mr{display:block;margin:6px auto 30px}
+.tabs{max-width:1000px;margin:auto;padding:0 16px 8px;display:flex;gap:8px}
+.tabs button.on2{background:var(--ac);color:#fff;border-color:var(--ac)}
+#fls{max-width:1000px;margin:12px auto 30px;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.g i.fs{background:var(--s)}.g i.fh{background:#9775fa}.g i.fm{background:#f06595}.g i.ff{background:#fcc419}.g i.fk{background:var(--k)}.g i.fg{background:var(--bd)}
+</style></head><body>
+<header><h1>🥁 Biblioteca de grooves</h1>
+<p>Más de 500 grooves y 240 fills para practicar. Elegí uno, escuchalo, cambiá el tempo y editá las notas tocando los cuadritos.</p></header>
+<div class="tabs"><button id="tg" class="on2">Grooves</button><button id="tf">Fills</button></div>
+<div id="pl"><div class="in">
+<div class="bar"><div id="nm">Elegí un groove de la lista</div><span id="bi" style="color:var(--ac);font-weight:700"></span>
+<div class="bp"><button id="m" aria-label="menos">−</button><input id="bpm" type="range" min="40" max="220" value="100"><button id="p" aria-label="más">+</button><span id="bv">100</span><span style="color:var(--mut)">BPM</span></div>
+<button id="pp">▶ Tocar</button><button id="pdf" hidden>📄 Partitura PDF</button></div>
+<div id="big" class="big"></div>
+<div class="hint">Verde: hi-hat (aro = abierto) · Azul: caja (tenue = fantasma) · Naranja: bombo · Barra espaciadora = tocar / parar</div>
+</div></div>
+<div id="sg"><div class="flt">
+<label>Estilo <select id="fs"></select></label>
+<label>Nivel <select id="fd"><option value="-1">Todos</option><option value="0">Fácil</option><option value="1">Medio</option><option value="2">Difícil</option></select></label>
+<label><input type="checkbox" id="ff"> Solo favoritos ★</label>
+<span id="ct"></span><button id="pk" hidden>📄 PDF del listado</button></div>
+<div id="ls"></div>
+<button id="mr">Mostrar más</button></div>
+<div id="sf" hidden>
+<div class="flt"><label>Groove base <select id="fb"></select></label><label>Duración <select id="fdur"><option value="0">Todas</option><option value="4">1 tiempo</option><option value="8">Medio compás</option><option value="16">Compás entero</option></select></label><span id="fct"></span><button id="fpk" hidden>📄 PDF del listado</button></div>
+<div class="hint" style="max-width:1000px;margin:6px auto;padding:0 16px">Cada fill se toca después de 3 compases del groove base y termina con un crash. Funcionan sobre grooves de 16 pasos. Colores: caja azul · tom agudo violeta · tom medio rosa · tom de piso amarillo · bombo naranja.</div>
+<div id="fls"></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const S=[
+{n:"Rock",st:16,bpm:100,
+h:["x.x.x.x.x.x.x.x.","x...x...x...x...","xxxxxxxxxxxxxxxx","x.x.x.x.x.x.x.o.","x.o.x.o.x.o.x.o."],
+s:["....x.......x...","....x..g....x..g"],
+k:["x.......x.......","x.....x.x.......","x.x.....x.......","x...x...x...x...","x..x..x.........","x.x...x.x.x.....","x.......x.x.....","x..x....x.....x.","x.x.......x.x...","xx......x.x....."]},
+{n:"Pop",st:16,bpm:105,
+h:["x.x.x.x.x.x.x.x.","x...x...x...x...","xxxxxxxxxxxxxxxx"],
+s:["....x.......x...","....x.......x..g"],
+k:["x.......x.......","x.......x.x.....","x..x....x.......","x.....x.x.......","x.x.....x.x.....","x...x...x...x...","x.x.x...x.......","x..x..x.x......."]},
+{n:"Funk",st:16,bpm:96,
+h:["xxxxxxxxxxxxxxxx","x.xxx.xxx.xxx.xx","xxxoxxxxxxxoxxxx"],
+s:["....x..g.g..x..g","....x.g.....x..g","....x..g.g..x.g."],
+k:["x..x..x...x.....","x.....x..x.x....","x..x...x..x.....","x.x...x...x.....","x...x..x..x.....","x..x..x..x..x...","x.x.x...x.x.....","x..x.x..x......."]},
+{n:"Disco",st:16,bpm:118,
+h:["x.o.x.o.x.o.x.o.","xxxxxxxxxxxxxxxx","x.x.x.x.x.x.x.x."],
+s:["....x.......x...","....x..x....x..."],
+k:["x...x...x...x...","x...x...x...x..x","x...x...x..xx...","x...x...x...x.x.","x...x.x.x...x..."]},
+{n:"Hip-hop",st:16,bpm:88,
+h:["x.x.x.x.x.x.x.x.","x.xxx.x.x.xxx.x.","xxxxxxxxxxxxxxxx"],
+s:["....x.......x...","....x.......x.g."],
+k:["x.......x.x.....","x..x....x.x.....","x.....x.x.......","x.x.....x..x....","x......x..x.....","x.x...x...x.....","x..x..x...x.....","x......x.x..x...","x.x.....x.x...x.","x..x....x..x...."]},
+{n:"Reggae",st:16,bpm:76,
+h:["x.x.x.x.x.x.x.x.","xxxxxxxxxxxxxxxx"],
+s:["........x.......","........x.....g."],
+k:["........x.......","x.......x.......","x...x...x...x...","........x.....x."]},
+{n:"Metal",st:16,bpm:140,
+h:["x.x.x.x.x.x.x.x.","x...x...x...x...","xxxxxxxxxxxxxxxx"],
+s:["....x.......x...","x...x...x...x..."],
+k:["xxxxxxxxxxxxxxxx","x.xxx.xxx.xxx.xx","xx..xx..xx..xx..","x.x.x.x.x.x.x.x.","x..xx..xx..xx..x"]},
+{n:"Punk",st:16,bpm:170,
+h:["x.x.x.x.x.x.x.x.","x...x...x...x...","xxxxxxxxxxxxxxxx"],
+s:["....x.......x...","..x...x...x...x."],
+k:["x.......x.......","x...x...x...x...","x.x.....x.x.....","x..x....x..x....","x.x...x.x.x...x."]},
+{n:"Shuffle / Blues",st:12,bpm:90,
+h:["x.xx.xx.xx.x","x..x..x..x..","xxxxxxxxxxxx"],
+s:["...x.....x..","...x.g...x.g"],
+k:["x.....x.....","x.....x..x..","x..x..x.....","x.....x.x...","x..x.....x..","x.x...x.....","x.....x...x."]},
+{n:"Balada 12/8",st:12,bpm:66,
+h:["x..x..x..x..","xxxxxxxxxxxx"],
+s:["......x.....","......x..g.."],
+k:["x.....x.x...","x.....x..x..","x.....x.....","x..x..x.....","x.....x.x.x."]},
+{n:"Bossa",st:16,bpm:120,
+h:["x.x.x.x.x.x.x.x."],
+s:["x..x..x...x..x..","..x...x...x...x."],
+k:["x..xx..xx..xx..x","x..x....x..x....","x..x..x.x..x.x.."]},
+{n:"Cumbia",st:16,bpm:95,
+h:["x.x.x.x.x.x.x.x.","xxxxxxxxxxxxxxxx"],
+s:["....x.......x...","....x.x.....x.x."],
+k:["x.......x.......","x...x...x...x...","x..x....x..x...."]},
+{n:"Chacarera (aprox.)",st:12,bpm:100,
+h:["x.xx.xx.xx.x","x..x..x..x.."],
+s:["..x..x..x.x.","...x..x..x.."],
+k:["x.....x..x..","x.....x.x...","x.x...x....."]},
+{n:"Samba",st:16,bpm:100,
+h:["xxxxxxxxxxxxxxxx","x.x.x.x.x.x.x.x."],
+s:["..x.x..x..x.x..x"],
+k:["x.......x.......","x..x..x.x..x..x.","x..x....x..x...."]},
+{n:"Afrobeat",st:16,bpm:105,
+h:["x.xxx.xxx.xxx.xx"],
+s:["....x.......x...","....x.g.....x.g."],
+k:["x..x..x...x.x...","x.....x..x....x.","x.x...x..x.x...."]},
+{n:"Jazz swing",st:12,bpm:140,
+h:["x..x.xx..x.x"],
+s:["......x.....",".....x...x..","...x.....x.."],
+k:["x..x..x..x..","x.....x....."]},
+{n:"Trap",st:16,bpm:70,
+h:["x.x.x.x.x.x.x.x.","xxxxxxxxxxxxxxxx","x.x.x.xxx.x.x.xx"],
+s:["........x......."],
+k:["x.....x...x.....","x.......x..x..x.","x..x......x.x...","x.x.......x....."]},
+{n:"Neo-soul",st:16,bpm:80,
+h:["x.x.x.x.x.x.x.x.","xxxxxxxxxxxxxxxx"],
+s:["....x.......x...","....x..g....x.g."],
+k:["x.....x...x.....","x..x....x.x.....","x.x.......x.x..."]},
+{n:"Drum and Bass",st:16,bpm:170,
+h:["x.x.x.x.x.x.x.x.","xxxxxxxxxxxxxxxx"],
+s:["....x.......x...","....x.......x..g"],
+k:["x.........x.....","x.........xx....","x..x......x.....","x.........x..x.."]}
+];
+const G=[];let gid=0;
+S.forEach(y=>{let c=0;y.h.forEach(h=>y.s.forEach(s=>y.k.forEach(k=>{c++;
+const n=(p,r)=>[...p].filter(x=>r.test(x)).length;
+const sc=n(k,/x/)+n(s,/g/)*1.5+n(h,/[xo]/)/4+n(h,/o/)*.5;
+G.push({id:++gid,y:y.n,num:c,st:y.st,bpm:y.bpm,h,s,k,d:sc<6?0:sc<10?1:2})})))});
+const DL=["Fácil","Medio","Difícil"];
+const $=i=>document.getElementById(i);
+let fav=new Set();
+try{fav=new Set(JSON.parse(localStorage.getItem("fav")||"[]"))}catch(e){}
+const saveFav=()=>{try{localStorage.setItem("fav",JSON.stringify([...fav]))}catch(e){}};
+$("fs").innerHTML='<option value="">Todos ('+G.length+')</option>'+S.map(y=>'<option>'+y.n+'</option>').join("");
+const nm=g=>g.y+" #"+String(g.num).padStart(3,"0");
+let list=[],shown=0,cur=null,bpm=100;
+function filt(){
+ const y=$("fs").value,d=+$("fd").value,f=$("ff").checked;
+ list=G.filter(g=>(!y||g.y==y)&&(d<0||g.d==d)&&(!f||fav.has(g.id)));
+ shown=0;$("ls").innerHTML="";more();
+ $("ct").textContent=list.length+" grooves";
+}
+function mini(g){
+ let h='<div class="g" style="grid-template-columns:repeat('+g.st+',1fr)">';
+ const per=g.st==12?3:4;
+ [["h","h"],["s","s"],["k","k"]].forEach(([r,c])=>{[...g[r]].forEach((x,i)=>{h+='<i class="'+(i&&i%per==0?"b ":"")+(x!="."?"on "+c:"")+'"></i>'})});
+ return h+"</div>";
+}
+function more(){
+ const fr=document.createDocumentFragment();
+ list.slice(shown,shown+48).forEach(g=>{
+  const b=document.createElement("button");b.className="cd"+(cur&&cur.id==g.id?" sel":"");b.dataset.id=g.id;
+  b.innerHTML='<div class="top"><div><b>'+nm(g)+'</b><small>'+DL[g.d]+" · "+g.bpm+' BPM</small></div><span class="star'+(fav.has(g.id)?" f":"")+'" data-f="'+g.id+'">'+(fav.has(g.id)?"★":"☆")+"</span></div>"+mini(g);
+  fr.appendChild(b)});
+ $("ls").appendChild(fr);shown+=48;
+ $("mr").style.display=shown>=list.length?"none":"block";
+}
+$("ls").onclick=e=>{
+ const f=e.target.closest("[data-f]");
+ if(f){const id=+f.dataset.f;fav.has(id)?fav.delete(id):fav.add(id);saveFav();
+  if($("ff").checked)filt();else{f.classList.toggle("f");f.textContent=fav.has(id)?"★":"☆"}return}
+ const c=e.target.closest(".cd");if(c)pick(G[+c.dataset.id-1]);
+};
+$("mr").onclick=more;
+["fs","fd","ff"].forEach(i=>$(i).onchange=filt);
+function pick(g){
+ const wasOn=on;stop();
+ cur={...g};bpm=g.bpm;$("bpm").value=bpm;$("bv").textContent=bpm;
+ $("nm").textContent=nm(g)+" · "+DL[g.d];
+ document.querySelectorAll(".cd.sel").forEach(x=>x.classList.remove("sel"));
+ const el=document.querySelector('.cd[data-id="'+g.id+'"]');if(el)el.classList.add("sel");
+ draw();if(wasOn)start();
+}
+function draw(){
+ const g=cur,B=$("big"),per=g.st==12?3:4;
+ B.style.gridTemplateColumns="auto repeat("+g.st+",1fr)";
+ let h="";
+ [["h","Hi-hat"],["s","Caja"],["k","Bombo"]].forEach(([r,l])=>{
+  h+="<span>"+l+"</span>";
+  [...g[r]].forEach((x,i)=>{h+='<button data-r="'+r+'" data-i="'+i+'" data-c="'+i+'" class="'+r+(i&&i%per==0?" b":"")+(x!="."?" on":"")+(x=="g"?" gh":"")+(x=="o"?" op":"")+'" aria-label="'+l+" "+(i+1)+'"></button>'})});
+ B.innerHTML=h;
+}
+$("big").onclick=e=>{
+ const b=e.target.closest("button");if(!b||!cur)return;
+ const r=b.dataset.r,i=+b.dataset.i,s=[...cur[r]];
+ s[i]=s[i]=="."?"x":".";cur[r]=s.join("");
+ b.className=b.className.replace(/ ?(on|gh|op)\b/g,"");
+ if(s[i]!=".")b.classList.add("on");
+};
+// Audio
+let ac,nb,on=false,step=0,next=0,tm,bar=0,lap=0,fill=null;
+function init(){
+ if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();
+  nb=ac.createBuffer(1,ac.sampleRate,ac.sampleRate);const d=nb.getChannelData(0);
+  for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1}
+ if(ac.state=="suspended")ac.resume();
+}
+function nz(t,dur,type,fq,v){
+ const s=ac.createBufferSource();s.buffer=nb;
+ const f=ac.createBiquadFilter();f.type=type;f.frequency.value=fq;
+ const g=ac.createGain();g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);
+ s.connect(f);f.connect(g);g.connect(ac.destination);s.start(t);s.stop(t+dur);
+}
+function osc(t,type,f0,f1,dur,v){
+ const o=ac.createOscillator(),g=ac.createGain();
+ o.type=type;o.frequency.setValueAtTime(f0,t);o.frequency.exponentialRampToValueAtTime(f1,t+dur*.4);
+ g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);
+ o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+dur);
+}
+function fh(c,t){
+ if(c=="s"){nz(t,.16,"highpass",1500,.7);osc(t,"triangle",220,160,.12,.5)}
+ else if(c=="k")osc(t,"sine",150,45,.3,1);
+ else{const f={h:[260,170],m:[190,120],f:[130,80]}[c];osc(t,"sine",f[0],f[1],.28,.9)}
+}
+function hit(i,t){
+ if(fill&&cur.st==16){
+  if(bar==0&&i==0&&lap>0)nz(t,1,"highpass",5000,.45);
+  if(bar==3){const c=fill.p[i];if(c!="g"){if(c!=".")fh(c,t);return}}
+ }
+ const h=cur.h[i],s=cur.s[i],k=cur.k[i];
+ if(h!=".")nz(t,h=="o"?.3:.05,"highpass",7000,.28);
+ if(s!="."){const v=s=="g"?.35:1;nz(t,.16,"highpass",1500,.6*v);osc(t,"triangle",220,160,.12,.5*v)}
+ if(k!=".")osc(t,"sine",150,45,.3,1);
+}
+function tick(){
+ const dt=60/bpm/(cur.st==12?3:4);
+ while(next<ac.currentTime+.12){
+  const i=step,t=next;
+  hit(i,t);
+  const b=bar;setTimeout(()=>{if(on)mark(i,b)},Math.max(0,(t-ac.currentTime)*1000));
+  step=(step+1)%cur.st;if(step==0){bar=(bar+1)%4;if(bar==0)lap++}next+=dt;
+ }
+}
+function mark(i,b){
+ if(fill&&cur.st==16)$("bi").textContent="Compás "+(b+1)+"/4"+(b==3?" · FILL":"");
+ document.querySelectorAll("#big .cur").forEach(x=>x.classList.remove("cur"));
+ document.querySelectorAll('#big [data-c="'+i+'"]').forEach(x=>x.classList.add("cur"));
+}
+function start(){if(!cur)return;init();on=true;step=0;bar=0;lap=0;next=ac.currentTime+.05;tm=setInterval(tick,25);$("pp").textContent="■ Parar"}
+function stop(){on=false;clearInterval(tm);$("pp").textContent="▶ Tocar";lbl();document.querySelectorAll("#big .cur").forEach(x=>x.classList.remove("cur"))}
+$("pp").onclick=()=>on?stop():start();
+function setB(v){bpm=Math.max(40,Math.min(220,v));$("bpm").value=bpm;$("bv").textContent=bpm}
+$("bpm").oninput=e=>setB(+e.target.value);
+$("m").onclick=()=>setB(bpm-5);$("p").onclick=()=>setB(bpm+5);
+document.addEventListener("keydown",e=>{
+ if(e.code=="Space"&&!/INPUT|SELECT|BUTTON/.test(e.target.tagName)){e.preventDefault();on?stop():start()}
+});
+// Fills
+const FR={4:["xxxx","x.xx","xx.x","xxx.","x.x.","x..x"],
+8:["xxxxxxxx","x.x.x.x.","xxxx.x.x","x.xxx.xx","xx.xxx.x","xxxxxx..","x.x.xxxx","xxx.xxx.","x..x..x.","xxxx...x"],
+16:["xxxxxxxxxxxxxxxx","x.x.x.x.xxxxxxxx","xxxx....xxxxxxxx","x..x..x.x.x.xxxx","....x.......xxxx","x.x.x.x.x.x.x.x.","xxx.xxx.xxx.xxx.","xx.xx.xx.xx.xxxx"]};
+const FO=["ssss","shmf","hhmm","hmff","sshh","ssmm","sffm","hmfk","fmhs","sshf"];
+const FD={4:"1 tiempo",8:"Medio compás",16:"Compás entero"};
+const F=[];let fn=0;
+[4,8,16].forEach(L=>FR[L].forEach(r=>FO.forEach(o=>{let j=0;
+ F.push({n:++fn,L,p:"g".repeat(16-L)+[...r].map(c=>c=="x"?o[j++%o.length]:".").join("")})})));
+const fnm=f=>"Fill #"+String(f.n).padStart(3,"0");
+function lbl(){$("bi").textContent=fill?"+ "+fnm(fill):""}
+function fmini(f){
+ let h='<div class="g" style="grid-template-columns:repeat(16,1fr)">';
+ [...f.p].forEach((c,i)=>{h+='<i class="'+(i&&i%4==0?"b ":"")+(c=="."?"":"f"+c)+'"></i>'});
+ return h+"</div>";
+}
+function rf(){
+ const L=+$("fdur").value,l=F.filter(f=>!L||f.L==L);
+ $("fls").innerHTML=l.map(f=>'<button class="cd'+(fill&&fill.n==f.n?" sel":"")+'" data-n="'+f.n+'"><div class="top"><div><b>'+fnm(f)+"</b><small>"+FD[f.L]+"</small></div></div>"+fmini(f)+"</button>").join("");
+ $("fct").textContent=l.length+" fills";
+}
+$("fb").innerHTML=S.filter(y=>y.st==16).map(y=>'<option value="'+G.find(g=>g.y==y.n).id+'">'+y.n+"</option>").join("");
+$("fb").onchange=()=>pick(G[+$("fb").value-1]);
+$("fdur").onchange=rf;
+$("fls").onclick=e=>{
+ const c=e.target.closest(".cd");if(!c)return;
+ fill=F[+c.dataset.n-1];
+ if(cur.st!=16)pick(G[0]);
+ document.querySelectorAll("#fls .sel").forEach(x=>x.classList.remove("sel"));c.classList.add("sel");
+ lbl();if(!on)start();
+};
+function tab(f){
+ $("sg").hidden=f;$("sf").hidden=!f;
+ $("tg").classList.toggle("on2",!f);$("tf").classList.toggle("on2",f);
+ if(f)rf();else{fill=null;lbl()}
+}
+$("tg").onclick=()=>tab(false);$("tf").onclick=()=>tab(true);
+// PDF
+const dl={save:async({filename,data})=>{
+ const a=document.createElement("a");a.href=URL.createObjectURL(data);a.download=filename;
+ document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000)}};
+["pdf","pk","fpk"].forEach(i=>$(i).hidden=false);
+const TP={h:7,m:6,f:3};
+function merge(g,f){
+ const h=[...g.h],s=[...g.s],k=[...g.k],t=Array(g.st).fill(".");
+ [...f.p].forEach((c,i)=>{if(c=="g")return;h[i]=".";s[i]=".";k[i]=".";
+  if(c=="s")s[i]="x";else if(c=="k")k[i]="x";else if(c!=".")t[i]=c});
+ return{h:h.join(""),s:s.join(""),k:k.join(""),t:t.join(""),st:g.st};
+}
+function grp(d,idx,X,yb,per,st,dir){
+ const dx=3*dir,sd=3*dir;d.setLineWidth(2);
+ for(let b=0;b<st;b+=per){
+  const g=idx.filter(i=>i>=b&&i<b+per);
+  if(g.length>1)d.line(X(g[0])+dx,yb,X(g[g.length-1])+dx,yb);
+  if(st==16)for(let j=1;j<g.length;j++)if(g[j]-g[j-1]==1)d.line(X(g[j-1])+dx,yb+sd,X(g[j])+dx,yb+sd);
+ }
+ d.setLineWidth(.5);
+}
+function drawBar(d,x,y0,w,P,clef){
+ const sp=6,st=P.st,per=st==12?3:4,pad=clef?20:8,sw=(w-pad-6)/st;
+ const X=i=>x+pad+(i+.5)*sw,Y=p=>y0-p*sp/2;
+ d.setDrawColor(0);d.setFillColor(0);d.setTextColor(0);d.setLineWidth(.5);
+ for(let l=0;l<5;l++)d.line(x,Y(l*2),x+w,Y(l*2));
+ d.line(x,Y(0),x,Y(8));d.line(x+w,Y(0),x+w,Y(8));
+ if(clef){d.setLineWidth(2.4);d.line(x+6,Y(3),x+6,Y(5));d.line(x+11,Y(3),x+11,Y(5))}
+ const up=[],dn=[],lows={};
+ for(let i=0;i<st;i++){
+  const xi=X(i),h=P.h[i],s=P.s[i],k=P.k[i],t=P.t?P.t[i]:".";let lo=99;
+  d.setLineWidth(.9);
+  if(h!="."){const y=Y(9);d.line(xi-2.6,y-2.6,xi+2.6,y+2.6);d.line(xi-2.6,y+2.6,xi+2.6,y-2.6);if(h=="o")d.circle(xi,y-6,1.7,"S");lo=9}
+  if(s!="."){d.ellipse(xi,Y(5),3.2,2.4,s=="g"?"S":"F");if(s=="g"){d.setFontSize(8);d.text("(",xi-8,Y(5)+3);d.text(")",xi+4.5,Y(5)+3)}lo=5}
+  if(t&&t!="."){d.ellipse(xi,Y(TP[t]),3.2,2.4,"F");lo=Math.min(lo,TP[t])}
+  if(lo<99){up.push(i);lows[i]=lo}
+  if(k!="."){d.ellipse(xi,Y(1),3.2,2.4,"F");dn.push(i)}
+ }
+ const yU=Y(14),yD=Y(-5);d.setLineWidth(.8);
+ up.forEach(i=>d.line(X(i)+3,Y(lows[i]),X(i)+3,yU));
+ dn.forEach(i=>d.line(X(i)-3,Y(1),X(i)-3,yD));
+ grp(d,up,X,yU,per,st,1);grp(d,dn,X,yD,per,st,-1);
+ d.setFontSize(7);d.setTextColor(110);
+ const cn=st==12?["","trip","let"]:["","e","&","a"];
+ for(let i=0;i<st;i++){const r=i%per;d.text(r==0?String(i/per+1):cn[r],X(i),Y(-9),{align:"center"})}
+ if(st==12)for(let b=0;b<12;b+=3)d.text("3",(X(b)+X(b+2))/2,yU-4,{align:"center"});
+ d.setTextColor(0);
+}
+function pages(items){
+ const d=new window.jspdf.jsPDF({unit:"pt",format:"a4"});let y=50,pg=1;
+ const hd=()=>{d.setFontSize(8);d.setTextColor(120);d.text("Grooves de batería - notación proporcional (sin silencios)",40,28);d.text("Pág. "+pg,555,28,{align:"right"});d.setTextColor(0)};
+ hd();
+ items.forEach(it=>{
+  if(y+105>800){d.addPage();pg++;hd();y=50}
+  d.setFontSize(10);d.setFont("helvetica","bold");d.setTextColor(0);d.text(it.t,40,y+10);d.setFont("helvetica","normal");
+  const w=515/it.P.length;it.P.forEach((P,i)=>drawBar(d,40+i*w,y+64,w,P,i==0));
+  y+=105;
+ });
+ return d;
+}
+async function run(fn,name){
+ $("bi").textContent="Generando PDF...";await new Promise(r=>setTimeout(r,30));
+ let m="";
+ try{await dl.save({filename:name,data:fn().output("blob")})}catch(e){if(!e||e.code!="declined")m="No se pudo guardar el PDF"}
+ lbl();if(m)$("bi").textContent=m;
+}
+const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/-$/,"");
+$("pdf").onclick=()=>{
+ if(!cur)return;const f=fill&&cur.st==16;
+ const it=f?{t:nm(cur)+" + "+fnm(fill)+"  ·  "+bpm+" BPM  ·  compás 1: groove, compás 2: con fill",P:[cur,merge(cur,fill)]}:{t:nm(cur)+"  ·  "+bpm+" BPM",P:[cur]};
+ run(()=>pages([it]),"partitura-"+slug(nm(cur))+(f?"-"+slug(fnm(fill)):"")+".pdf");
+};
+$("pk").onclick=()=>run(()=>pages(list.map(g=>({t:nm(g)+"  ·  "+DL[g.d]+"  ·  "+g.bpm+" BPM",P:[g]}))),"pack-grooves-"+list.length+".pdf");
+$("fpk").onclick=()=>{
+ const g=cur.st==16?cur:G[0],L=+$("fdur").value,l=F.filter(f=>!L||f.L==L);
+ run(()=>pages(l.map(f=>({t:nm(g)+" + "+fnm(f)+"  ·  "+FD[f.L]+"  ·  "+bpm+" BPM",P:[g,merge(g,f)]}))),"pack-fills-"+l.length+".pdf");
+};
+filt();pick(G[0]);
+</script></body></html>
